@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userController;
+use App\Http\Controllers\produkController;
+use App\Http\Controllers\homeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [userController::class, 'daftarPage']);
+Route::get('menu', [produkController::class, 'listMenu']);
+Route::get('createMenu', [produkController::class, 'createMenu']);
+Route::get('menu/edit/{produks}', [produkController::class, 'editMenu']);
+Route::get('login', [userController::class, 'login']);
+Route::get('home', [produkController::class, 'home'])->middleware('auth');
+
+Route::post('tambahMenu', [produkController::class, 'add']);
+Route::post('daftar', [userController::class, 'daftar']);
+Route::post('loginAction', [userController::class, 'masuk']);
+Route::post('menu/{produks}', [produkController::class, 'delete']);
+Route::put('editMenu/{produks}', [produkController::class, 'update']);
