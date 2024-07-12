@@ -58,7 +58,7 @@ class produkController extends Controller
         return redirect('menu');
     }
 
-    public function update(StoreMenuReq $request, produks $produks){
+    public function update(Request $request, produks $produks){
         $new = $request->all();
 
         if($request->hasFile('foto')){

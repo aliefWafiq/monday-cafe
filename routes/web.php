@@ -15,13 +15,17 @@ use App\Http\Controllers\homeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', function(){
+    return view('landingPage');
+});
 
-Route::get('/', [userController::class, 'daftarPage']);
+
+Route::get('/daftar', [userController::class, 'daftarPage']);
 Route::get('menu', [produkController::class, 'listMenu']);
 Route::get('createMenu', [produkController::class, 'createMenu']);
 Route::get('menu/edit/{produks}', [produkController::class, 'editMenu']);
 Route::get('login', [userController::class, 'login']);
-Route::get('home', [produkController::class, 'home'])->middleware('auth');
+Route::get('home', [produkController::class, 'home']);
 
 Route::post('tambahMenu', [produkController::class, 'add']);
 Route::post('daftar', [userController::class, 'daftar']);

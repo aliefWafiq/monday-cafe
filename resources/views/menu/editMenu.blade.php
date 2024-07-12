@@ -14,7 +14,7 @@
             <div class="mb-2">
                 <label>Foto :</label>
                 <p>Foto saat ini : {{$produks->foto}}</p>
-                <input type="file" name="foto">
+                <input type="file" name="foto" value="{{$produks->foto}}">
             </div>
             <label for="nama">Nama :</label>
             <input class="form-control" type="text" name="nama" id="nama" value="{{$produks->nama}}">

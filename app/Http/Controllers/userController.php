@@ -15,11 +15,11 @@ class userController extends Controller
     }
 
     public function login(){
-        if(Auth::check()){
-            return redirect('home');
-        }else{
+        // if(Auth::check()){
+        //     return redirect('home');
+        // }else{
             return view('login');
-        }
+        // }
     }
 
     public function daftar(Request $request)
@@ -43,16 +43,16 @@ class userController extends Controller
             $dataUser = $request->all();
             $dataUser['password'] = $password;
             users::create($dataUser);
-            return redirect('/home');
+            return redirect('/login');
         }
     }
 
-    public function masuk(Request $request){
-        // $request->validate([
-        //     'username' => 'required',
-        //     'email' => 'required',
-        //     'password' => 'required'
-        // ]);
+    public function masuk(Request $request, users $users){
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
         $data = array(
             'username' => $request->input('username'),
@@ -60,10 +60,13 @@ class userController extends Controller
             'password' => $request->input('password')
         );
 
-        if(Auth::attempt($data)){
-            return redirect('home');
-        }else{
-            return redirect('/');
+        if(auth()->attempt($data)){
+            $user = auth()->user();
+            if($user->username == 'admin'){
+                return redirect('/menu');
+            } else{
+                return redirect('/home');
+            }
         }
     }
 }

@@ -16,8 +16,16 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css')}}">
 </head>
-<body>
+<body style="background-color: rgba(238, 237, 235, 1);">
     
+<section class="nav">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            @yield('navbar')
+        </div>
+    </div>
+</section>
+
 <section class="content">
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
