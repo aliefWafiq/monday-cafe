@@ -50,11 +50,16 @@ class produkController extends Controller
         }
     }
 
-    public function delete(produks $produks){
-        produks::destroy($produks->id);
-        if(file_exists(public_path($produks->foto))){
-            unlink(public_path($produks->foto));
-        }
+    public function delete($id){
+        // produks::destroy($produks->id);
+        $produks = produks::findOrFail($id);
+
+        //delete image
+        // produks::delete($produks->foto);
+        unlink(public_path($produks->foto));
+        $produks->delete();
+        // if(file_exists(public_path($produks->foto))){
+        // }
         return redirect('menu');
     }
 

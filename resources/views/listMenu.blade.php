@@ -37,7 +37,7 @@
                             <a href="/menu/edit/{{$x->id}}" class="btn mx-2 btn-warning col-5 fileinput-button">
                                 <span>Edit</span>
                             </a>
-                            <form action="/menu/{{$x->id}}" method="post" class="col-5 mx-2" id="delete">
+                            <form action="/menu/{{$x->id}}" method="post" class="col-5 mx-2" id="delete-{{$x->id}}">
                                 @csrf
                                 <button type="submit" class="btn btn-danger col-12 fileinput-button">
                                     <span>Delete</span>

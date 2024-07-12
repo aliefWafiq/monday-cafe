@@ -159,9 +159,10 @@
   <!-- AdminLTE App -->
   <script src="{{asset('adminlte/dist/js/adminlte.min.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  @foreach ($data as $x)
   <script>
     $(function() {
-      $(document).on('click', '#delete', function(e) {
+      $(document).on('click', '#delete-{{$x->id}}', function(e) {
         e.preventDefault()
         let link = $(this).attr('action')
 
@@ -175,12 +176,13 @@
           confirmButtonText: "Yes, delete it!"
         }).then((result) => {
           if (result.value) {
-            document.getElementById('delete').submit(); // Submit the form if confirmed
+            document.getElementById('delete-{{$x->id}}').submit(); // Submit the form if confirmed
           }
         });
       })
     })
-  </script>
+    </script>
+    @endforeach
   <!-- AdminLTE for demo purposes -->
   <!-- Page specific script -->
 </body>
