@@ -27,17 +27,20 @@
 @endsection
 
 @section('content')
-@foreach ($data as $x)
-<div class="card mx-2 my-2" style="width: 17rem; background-color: rgba(230, 185, 166, 1);">
-    <div class="bg-danger overflow-hidden" style="height: 200px">
-        <img class="card-img-top img-fluid" src="{{asset($x->foto)}}" alt="Card image cap " style="object-fit: cover;">
-    </div>
-    <div class="card-body">
-        <h5 class="card-title" style="color: black;">{{$x->nama}}</h5>
-        <p class="card-text" style="color: rgba(238, 237, 235, 1); font-size: 16px;">{{$x->harga}}</p>
-        <p class="card-text">{{Str::limit($x->desc, 25)}}</p>
-        <a href="#" class="btn" style="background-color: rgba(238, 237, 235, 1); color: rgba(47, 54, 69, 1);">Masukan keranjang</a>
-    </div>
-</div>
+<div class="container-fluid">
+    <div class="mx-5 row">
+       <div class="col-md-12 ">
+@foreach($data as $x)
+            <div class="flex-row col-12 card mx-2 my-2 d-flex" style="background-color: rgba(230, 185, 166, 1);">
+                <div class="col-2 overflow-hidden" style="height: 100px">
+                    <img class="card-img-top img-fluid" src="{{asset($x->foto)}}" alt="Card image cap " style="object-">
+                </div>
+                <div class="col-6 card-body">
+                <h5 class="card-title" style="color: black;">{{$x->nama}}</h5>
+                <p class="card-text" style="color: rgba(238, 237, 235, 1); font-size: 16px;">{{$x->harga}}</p>
+            </div>
+        </div>
 @endforeach
+    </div>
+</div>                     
 @endsection

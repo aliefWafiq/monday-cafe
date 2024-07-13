@@ -16,6 +16,11 @@ class produkController extends Controller
         $this->userController = $userController;
     }
 
+    public function keranjang(){
+        $data = produks::all();
+        return view('keranjang', compact('data'));
+    }
+
     public function home(){
         // $userController = $this->userController->daftar();
         $data = produks::all();

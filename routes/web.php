@@ -19,6 +19,7 @@ Route::get('/', function(){
     return view('landingPage');
 });
 
+Route::get('keranjang', [produkController::class, 'keranjang']);
 
 Route::get('/daftar', [userController::class, 'daftarPage']);
 Route::get('menu', [produkController::class, 'listMenu']);
