@@ -15,11 +15,11 @@ class userController extends Controller
     }
 
     public function login(){
-        // if(Auth::check()){
-        //     return redirect('home');
-        // }else{
+        if(Auth::check()){
+             return redirect('home');
+         }else{
             return view('login');
-        // }
+        }
     }
 
     public function daftar(Request $request)
@@ -67,6 +67,8 @@ class userController extends Controller
             } else{
                 return redirect('/home');
             }
+        }else{
+            return redirect('login');
         }
     }
 }

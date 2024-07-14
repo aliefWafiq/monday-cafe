@@ -1,7 +1,7 @@
 @extends('layout.form1')
 
 @section('form')
-<form action="/editMenu/{{$produks->id}}" method="post" id="quickForm">
+<form action="/editMenu/{{$produks->id}}" method="post" id="quickForm" enctype="multipart/form-data">
     @method('put')
     @csrf
     <div class="card-body">

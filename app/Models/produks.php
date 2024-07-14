@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\keranjangs;
 
 class produks extends Model
 {
     use HasFactory;
-
-   protected $guarded = ['id'];
+    protected $guarded = [];  
+   public function keranjangs()
+   {
+       return $this->hasMany(Keranjangs::class, 'id');
+   }
 }

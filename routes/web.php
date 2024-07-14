@@ -19,15 +19,16 @@ Route::get('/', function(){
     return view('landingPage');
 });
 
-Route::get('keranjang', [produkController::class, 'keranjang']);
-
-Route::get('/daftar', [userController::class, 'daftarPage']);
+Route::get('cart', [produkController::class, 'keranjang']);
+Route::get('daftar', [userController::class, 'daftarPage']);
 Route::get('menu', [produkController::class, 'listMenu']);
 Route::get('createMenu', [produkController::class, 'createMenu']);
 Route::get('menu/edit/{produks}', [produkController::class, 'editMenu']);
 Route::get('login', [userController::class, 'login']);
 Route::get('home', [produkController::class, 'home']);
+Route::post('/logout', [produkController::class, 'logout'])->name('logout');
 
+Route::get('keranjang/{produks}', [produkController::class, 'addKeranjang']);
 Route::post('tambahMenu', [produkController::class, 'add']);
 Route::post('daftar', [userController::class, 'daftar']);
 Route::post('loginAction', [userController::class, 'masuk']);

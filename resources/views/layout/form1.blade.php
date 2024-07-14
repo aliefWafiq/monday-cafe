@@ -49,7 +49,7 @@
                         <img src="{{asset('img/karane.jpg')}}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alief wafiq ramadhan</a>
+                        <a href="#" class="d-block">admin</a>
                     </div>
                 </div>
 
@@ -79,10 +79,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link">
+                            <a href="home" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Transaksi
+                                    Home
                                 </p>
                             </a>
                         </li>
@@ -120,7 +120,7 @@
                         <div class="col-md-12">
                             <!-- jquery validation -->
                             <div class="card card-primary">
-                              @yield('form')
+                                @yield('form')
                             </div>
                             <!-- /.card -->
                         </div>
